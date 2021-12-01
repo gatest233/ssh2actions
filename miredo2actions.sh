@@ -49,7 +49,7 @@ if [[ -n "${SSH_PASSWORD}" ]]; then
 fi
 
 echo -e "${INFO} Start ngrok proxy for SSH port..."
-screen -dmS ngrok \
+screen -dmS miredo \
     ngrok tcp 22 \
     --log "${LOG_FILE}" \
     --authtoken "${NGROK_TOKEN}" \
@@ -105,7 +105,7 @@ else
     exit 4
 fi
 
-while [[ -n $(ps aux | grep ngrok) ]]; do
+while [[ -n $(ps aux | grep miredo) ]]; do
     sleep 1
     if [[ -e ${CONTINUE_FILE} ]]; then
         echo -e "${INFO} Continue to the next step."
