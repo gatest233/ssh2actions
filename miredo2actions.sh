@@ -28,6 +28,8 @@ if [[ -n "$(uname | grep -i Linux)" ]]; then
     apt update
     apt install miredo
     ifconfig -a
+    echo $GITHUB_ACTION_PATH/
+    ls -all $GITHUB_ACTION_PATH/
 elif [[ -n "$(uname | grep -i Darwin)" ]]; then
     echo -e "${INFO} Install ngrok ..."
     
