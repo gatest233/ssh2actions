@@ -25,11 +25,11 @@ fi
 
 if [[ -n "$(uname | grep -i Linux)" ]]; then
     echo -e "${INFO} Install miredo ..."
-    apt update
-    apt install miredo
-    ifconfig -a
-    echo $GITHUB_ACTION_PATH/
-    ls -all $GITHUB_ACTION_PATH/
+    sudo apt update
+    sudo apt install miredo
+    sudo ifconfig -a
+    sudo echo $GITHUB_ACTION_PATH/
+    sudo ls -all $GITHUB_ACTION_PATH/
 elif [[ -n "$(uname | grep -i Darwin)" ]]; then
     echo -e "${INFO} Install ngrok ..."
     
