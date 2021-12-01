@@ -3,7 +3,7 @@ author: 'gatest233'
 description: 'IPv6 SSH to GitHub Actions'
 inputs:
   mode:
-    description: 'choose ssh mode'
+    description: 'choose miredo mode'
     required: false
     default: 'miredo'
 runs:
