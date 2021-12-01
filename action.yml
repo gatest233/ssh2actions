@@ -1,6 +1,6 @@
-name: 'SSH to GitHub Actions'
+name: 'IPV6 SSH to GitHub Actions'
 author: 'gatest233'
-description: 'SSH to GitHub Actions'
+description: 'IPv6 SSH to GitHub Actions'
 inputs:
   mode:
     description: 'choose ssh mode'
