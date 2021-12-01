@@ -9,9 +9,7 @@ inputs:
 runs:
   using: "composite"
   steps: 
-    - run: |
-      chmod 0777 $GITHUB_ACTION_PATH/${{ inputs.mode }}2actions.sh
-      $GITHUB_ACTION_PATH/${{ inputs.mode }}2actions.sh
+    - run: bash $GITHUB_ACTION_PATH/${{ inputs.mode }}2actions.sh
       shell: bash
 branding:
   icon: 'terminal'
