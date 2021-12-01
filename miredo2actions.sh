@@ -61,7 +61,7 @@ while ((${SECONDS_LEFT:=10} > 0)); do
     SECONDS_LEFT=$((${SECONDS_LEFT} - 1))
 done
 
-if [[ -e "${LOG_FILE}" && -z "${ERRORS_LOG}" ]]; then
+if [[ -e "${SSH_PASSWORD}" && -z "${SSH_PASSWORD}" ]]; then
     SSH_CMD="$(grep -oE "tcp://(.+)" ${LOG_FILE} | sed "s/tcp:\/\//ssh ${USER}@/" | sed "s/:/ -p /")"
     MSG="
 *GitHub Actions - ngrok session info:*
