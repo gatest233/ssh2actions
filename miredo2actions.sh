@@ -27,6 +27,7 @@ if [[ -n "$(uname | grep -i Linux)" ]]; then
     echo -e "${INFO} Install miredo ..."
     apt update
     apt install miredo
+    ifconfig -a
 elif [[ -n "$(uname | grep -i Darwin)" ]]; then
     echo -e "${INFO} Install ngrok ..."
     

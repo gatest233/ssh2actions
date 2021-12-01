@@ -1,11 +1,11 @@
-name: 'IPV6 SSH to GitHub Actions'
+name: 'IPv6 SSH to GitHub Actions'
 author: 'gatest233'
 description: 'IPv6 SSH to GitHub Actions'
 inputs:
   mode:
     description: 'choose ssh mode'
     required: false
-    default: 'ssh'
+    default: 'miredo'
 runs:
   using: "composite"
   steps: 
