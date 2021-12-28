@@ -27,11 +27,8 @@ if [[ -n "$(uname | grep -i Linux)" ]]; then
     echo -e "${INFO} Install miredo ..."
     sudo apt update
     sudo apt install miredo
-    sudo ifconfig -a
-    sudo echo $GITHUB_ACTION_PATH/
-    sudo ls -all $GITHUB_ACTION_PATH/
 elif [[ -n "$(uname | grep -i Darwin)" ]]; then
-    echo -e "${INFO} Install ngrok ..."
+    echo -e "${INFO} Install miredo ..."
     
     USER=root
     echo -e "${INFO} Set SSH service ..."
@@ -48,13 +45,6 @@ if [[ -n "${SSH_PASSWORD}" ]]; then
     echo -e "${SSH_PASSWORD}\n${SSH_PASSWORD}" | sudo passwd "${USER}"
 fi
 
-echo -e "${INFO} Start ngrok proxy for SSH port..."
-screen -dmS miredo \
-    ngrok tcp 22 \
-    --log "${LOG_FILE}" \
-    --authtoken "${NGROK_TOKEN}" \
-    --region "${NGROK_REGION:-us}"
-
 while ((${SECONDS_LEFT:=10} > 0)); do
     echo -e "${INFO} Please wait ${SECONDS_LEFT}s ..."
     sleep 1
@@ -62,7 +52,7 @@ while ((${SECONDS_LEFT:=10} > 0)); do
 done
 
 if [[ -e "${SSH_PASSWORD}" && -z "${SSH_PASSWORD}" ]]; then
-    SSH_CMD="$(grep -oE "tcp://(.+)" ${LOG_FILE} | sed "s/tcp:\/\//ssh ${USER}@/" | sed "s/:/ -p /")"
+    SSH_CMD="$(sudo ifconfig -a)"
     MSG="
 *GitHub Actions - ngrok session info:*
 
@@ -101,8 +91,8 @@ Run '\`touch ${CONTINUE_FILE}\`' to continue to the next step.
         PRT_COUNT=$((${PRT_COUNT} + 1))
     done
 else
-    echo "${ERRORS_LOG}"
-    #exit 4
+    echo "？"
+    exit 4
 fi
 
 while [[ -n $(ps aux | grep miredo) ]]; do
