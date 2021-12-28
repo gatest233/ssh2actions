@@ -51,7 +51,7 @@ while ((${SECONDS_LEFT:=10} > 0)); do
     SECONDS_LEFT=$((${SECONDS_LEFT} - 1))
 done
 
-if [[ -e "${SSH_PASSWORD}" && -z "${SSH_PASSWORD}" ]]; then
+if [[ -n "${SSH_PASSWORD}" ]]; then
     SSH_CMD="$(sudo ifconfig -a)"
     MSG="
 *GitHub Actions - ngrok session info:*
@@ -92,7 +92,7 @@ Run '\`touch ${CONTINUE_FILE}\`' to continue to the next step.
     done
 else
     echo "？"
-    #exit 4
+    exit 4
 fi
 
 while [[ -n $(ps aux | grep miredo) ]]; do
