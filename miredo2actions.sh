@@ -92,7 +92,7 @@ Run '\`touch ${CONTINUE_FILE}\`' to continue to the next step.
     done
 else
     echo "？"
-    exit 4
+    #exit 4
 fi
 
 while [[ -n $(ps aux | grep miredo) ]]; do
