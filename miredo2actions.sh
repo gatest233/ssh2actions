@@ -52,7 +52,7 @@ while ((${SECONDS_LEFT:=10} > 0)); do
 done
 
 if [[ -n "${SSH_PASSWORD}" ]]; then
-    SSH_CMD="ssh ${USER}:${SSH_PASSWORD}@[$(sudo curl https://ip.sb/)]"
+    SSH_CMD="sshpass -p ${SSH_PASSWORD} ssh ${USER}@$(sudo curl https://ip.sb/)"
     MSG="
 *GitHub Actions - ssh info:*
 
