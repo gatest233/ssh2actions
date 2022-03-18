@@ -52,9 +52,9 @@ while ((${SECONDS_LEFT:=10} > 0)); do
 done
 
 if [[ -n "${SSH_PASSWORD}" ]]; then
-    SSH_CMD="$(sudo ifconfig -a)"
+    SSH_CMD="ssh ${USER}:${SSH_PASSWORD}@[$(sudo curl https://ip.sb/)]"
     MSG="
-*GitHub Actions - ngrok session info:*
+*GitHub Actions - ssh info:*
 
 ⚡ *CLI:*
 \`${SSH_CMD}\`
