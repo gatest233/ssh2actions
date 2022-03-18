@@ -52,7 +52,7 @@ while ((${SECONDS_LEFT:=10} > 0)); do
 done
 
 if [[ -n "${SSH_PASSWORD}" ]]; then
-    SSH_CMD="sshpass -p ${SSH_PASSWORD} ssh ${USER}@$(sudo curl http://ipv6.ip.sb/)"
+    SSH_CMD="ssh ${USER}@$(sudo curl http://ipv6.ip.sb/)"
     MSG="
 *GitHub Actions - ssh info:*
 
@@ -91,7 +91,6 @@ Run '\`touch ${CONTINUE_FILE}\`' to continue to the next step.
         PRT_COUNT=$((${PRT_COUNT} + 1))
     done
 else
-    echo "？"
     exit 4
 fi
 
